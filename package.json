@@ -1,0 +1,27 @@
+{
+  "name": "hobby-rpc.clients.nodejs",
+  "main": "./lib/main.js",
+  "exports": {
+    "require": "./lib/main.js",
+    "import": "./lib/esm.mjs"
+  },
+  "version": "0.0.0",
+  "author": "Anatoly Chernov <chertoly@gmail.com>",
+  "description": "left as an exercise to the reader",
+  "license": "0BSD",
+  "keywords": [
+    "coffeescript"
+  ],
+  "scripts": {
+    "build": "coffeelib build",
+    "start": "coffeelib watch",
+    "test": "coffee scripts/run_specs.coffee"
+  },
+  "devDependencies": {
+    "@ch1c0t/ext": "^0.2.2",
+    "coffeelib": "^0.5.5",
+    "hobby-rpc": "^0.2.0",
+    "hobby-rpc.server": "^0.1.2",
+    "jasmine": "^6.1.0"
+  }
+}

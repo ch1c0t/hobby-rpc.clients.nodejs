@@ -1,0 +1,13 @@
+{
+  "spec_dir": "spec",
+  "spec_files": [
+    "**/*.spec.coffee"
+  ],
+  "helpers": [
+    "support/coffee.js",
+    "helpers/**/*.coffee"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "jsLoader": "require",
+  "random": true
+}
