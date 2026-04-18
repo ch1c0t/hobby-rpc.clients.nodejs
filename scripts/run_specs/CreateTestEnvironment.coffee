@@ -1,12 +1,13 @@
 { CreateJasmine } = require './CreateJasmine.coffee'
 { CreateTmpDirectory } = require './CreateTmpDirectory.coffee'
-{ StartServers } = require './StartServers.coffee'
+{ StartTasks } = require './StartTasks.coffee'
 
 exports.CreateTestEnvironment = ->
   dir = await CreateTmpDirectory()
-  StartServers()
+  tasks = await StartTasks inside_of: dir
 
   {
     jasmine: CreateJasmine()
-    dir: dir
+    dir
+    tasks
   }

@@ -12,4 +12,7 @@ run = ->
       if info.overallStatus is 'failed'
         process.exit 3
 
+      for task in TE.tasks
+        process.kill task.pid
+
 run()

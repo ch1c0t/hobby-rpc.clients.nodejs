@@ -18,8 +18,8 @@
     "test": "coffee scripts/run_specs.coffee"
   },
   "devDependencies": {
-    "@ch1c0t/ext": "^0.2.2",
-    "coffeelib": "^0.5.5",
+    "@ch1c0t/ext": "^0.2.3",
+    "coffeelib": "^0.5.6",
     "hobby-rpc": "^0.2.0",
     "hobby-rpc.server": "^0.1.2",
     "jasmine": "^6.1.0"

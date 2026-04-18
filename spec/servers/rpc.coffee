@@ -13,4 +13,6 @@ functions =
       error: "Expected input.code to be a valid CoffeeScript code."
 
 server = Server { functions }
-server.listen "#{ENV.dir}/coffee-rpc.socket"
+server.listen "#{process.cwd()}/coffee-rpc.socket", ->
+  process.send
+    pid: process.pid
