@@ -5,9 +5,11 @@ global.Task = bow
   methods:
     start: ->
       new Promise (resolve, reject) =>
+        cwd = @inside_of or process.cwd()
         @child = fork @run, @args,
-          cwd: @inside_of
+          cwd: cwd
         @child.once 'message', (data) =>
+          @data = data
           if data.pid
             @pid = data.pid
             resolve @pid
