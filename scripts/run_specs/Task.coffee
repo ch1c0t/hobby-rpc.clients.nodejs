@@ -3,6 +3,14 @@ require 'coffeescript/register'
 
 global.Task = bow
   methods:
+    stop: ->
+      try
+        process.kill @pid
+      catch error
+        if error.code is 'ESRCH'
+          # ESRCH: The task PID does not exist.
+        else
+          console.error error
     start: ->
       new Promise (resolve, reject) =>
         cwd = @inside_of or process.cwd()

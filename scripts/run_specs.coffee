@@ -13,6 +13,14 @@ run = ->
         process.exit 3
 
       for task in TE.tasks
-        process.kill task.pid
+        { pid } = task
+        try
+          process.kill pid
+        catch error
+          if error.code is 'ESRCH'
+            # ESRCH: The task PID does not exist. Continue to the next task.
+            continue
+          else
+            console.error error
 
 run()
