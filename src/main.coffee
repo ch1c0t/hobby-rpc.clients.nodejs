@@ -2,11 +2,7 @@ http = require 'http'
 { request } = http
 
 exports.RPC = ({ url }) ->
-  url = new URL url
   options =
-    hostname: url.hostname
-    port: url.port
-    path: url.path
     method: 'POST'
     headers:
       'Content-Type': 'application/json'
@@ -21,7 +17,7 @@ exports.RPC = ({ url }) ->
     body = JSON.stringify body
 
     new Promise (resolve, reject) ->
-      req = request options, (res) ->
+      req = request url, options, (res) ->
         response = ''
         res.on 'data', (chunk) -> response += chunk
         res.on 'end', ->
