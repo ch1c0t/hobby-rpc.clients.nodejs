@@ -1,9 +1,10 @@
 http = require 'http'
-{ request } = http
 
 exports.RPC = ({ url, socket }) ->
   if url and socket
     throw new Error "Expected either url or socket. Got both."
+
+  { request } = http
 
   options =
     method: 'POST'
@@ -18,6 +19,8 @@ exports.RPC = ({ url, socket }) ->
       port: url.port
       path: url.pathname
     }
+    if url.protocol is 'https:'
+      { request } = require 'https'
 
   if socket
     options = {
