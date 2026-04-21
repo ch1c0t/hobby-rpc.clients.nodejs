@@ -6,7 +6,7 @@ exports.RPC = ({ url }) ->
   options =
     hostname: url.hostname
     port: url.port
-    path: url.path
+    path: url.pathname
     method: 'POST'
     headers:
       'Content-Type': 'application/json'
