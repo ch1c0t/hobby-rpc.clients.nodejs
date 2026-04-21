@@ -11,7 +11,10 @@ run = ->
     .then (info) ->
       if info.overallStatus is 'failed'
         process.exit 3
-
+    .catch (error) ->
+      console.error error
+      process.exit 3
+    .finally ->
       for task in TE.tasks
         { pid } = task
         try

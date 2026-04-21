@@ -1,5 +1,5 @@
 {
-  "name": "hobby-rpc.clients.nodejs",
+  "name": "hobby-rpc.client",
   "main": "./lib/main.js",
   "exports": {
     "require": "./lib/main.js",
