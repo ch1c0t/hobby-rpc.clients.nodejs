@@ -1,3 +1,4 @@
+require '@ch1c0t/ext'
 { compile, VERSION } = require 'coffeescript'
 
 exports.functions =
