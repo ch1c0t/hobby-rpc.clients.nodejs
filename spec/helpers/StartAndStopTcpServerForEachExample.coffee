@@ -1,6 +1,5 @@
-global.StartAndStopTcpServerForEachExample = ->
+global.StartAndStopTcpServerForEachExample = ({ server_path }) ->
   beforeEach ->
-    server_path = "#{process.cwd()}/spec/lib/rpc_via_tcp.coffee"
     @server = await Task
       run: server_path
 

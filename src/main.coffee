@@ -1,6 +1,6 @@
 http = require 'http'
 
-exports.RPC = ({ url, socket }) ->
+exports.RPC = ({ url, socket, token }) ->
   if url and socket
     throw new Error "Expected either url or socket. Got both."
 
@@ -10,6 +10,9 @@ exports.RPC = ({ url, socket }) ->
     method: 'POST'
     headers:
       'Content-Type': 'application/json'
+
+  if token
+    options.headers.Authorization = token
 
   if url
     url = new URL url
