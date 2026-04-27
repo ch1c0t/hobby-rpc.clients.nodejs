@@ -42,12 +42,17 @@ exports.RPC = ({ url, socket, token }) ->
 
     new Promise (resolve, reject) ->
       req = request options, (res) ->
+        if res.statusCode isnt 200
+          error = "Request failed. Status code: #{res.statusCode}."
+          res.resume()
+          reject new Error error
+          return
+
         response = ''
         res.on 'data', (chunk) -> response += chunk
         res.on 'end', ->
           resolve JSON.parse response
       req.on 'error', (error) ->
-        console.error error
         reject error
       req.write body
       req.end()
