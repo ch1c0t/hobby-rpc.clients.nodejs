@@ -19,4 +19,4 @@ describe 'token', ->
       url: @url
 
     await expectAsync @rpc 'Compile', 'answer = 42'
-      .toBeRejectedWithError 'Request failed. Status code: 403.'
+      .toBeRejectedWith 403
