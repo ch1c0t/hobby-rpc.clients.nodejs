@@ -22,8 +22,9 @@ output = await rpc 'SomeNullaryFunction'
 output = await rpc 'SomeUnaryFunction', input
 ```
 
-`input` can be any object serializable to JSON
-(that's what will be passed to the remote function as an argument).
+`input` can be any object serializable to JSON.
+It will be passed to the remote function as an argument.
+
 `output` would be an object deserialized from JSON.
 
 It can connect either via a TCP socket(if you pass its address in `url`) or
