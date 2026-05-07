@@ -50,9 +50,7 @@ exports.RPC = ({ url, socket, token }) ->
 
         response = ''
         res.on 'data', (chunk) -> response += chunk
-        res.on 'end', ->
-          resolve JSON.parse response
-      req.on 'error', (error) ->
-        reject error
+        res.on 'end', -> resolve JSON.parse response
+      req.on 'error', reject
       req.write body
       req.end()
