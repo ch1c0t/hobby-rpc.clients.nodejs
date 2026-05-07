@@ -1,5 +1,5 @@
 { Server } = require 'hobby-rpc.server'
-{ functions } = require './functions'
+{ functions } = require '../lib/functions'
 
 server = Server { functions }
 server.listen "#{process.cwd()}/coffee-rpc.socket", ->
